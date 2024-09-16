@@ -9,7 +9,10 @@ const server = new ApolloServer({
   playground: true      // Habilitar el Playground en producción
 });
 
+// Usar el puerto proporcionado por Render o 4000 en local
+const port = process.env.PORT || 4000;
+
 // Iniciar el servidor
-server.listen().then(({ url }) => {
+server.listen({ port }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
